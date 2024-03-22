@@ -19,26 +19,33 @@ function divide(num1, num2) {
   return num1 / num2;
 }
 
-function operate(operation, num1, num2) {
+function operate(operation, numb1, numb2) {
+  let result = 0;
   switch (operation) {
     case "+":
-      display.textContent = add(num1, num2);
+      result = add(numb1, numb2);
+      display.textContent = result;
       break;
     case "-":
-      display.textContent = subtract(num1, num2);
+      result = subtract(numb1, numb2);
+      display.textContent = result;
       break;
     case "*":
-      display.textContent = multiply(num1, num2);
+      result = multiply(numb1, numb2);
+      display.textContent = result;
       break;
     case "/":
-      display.textContent = divide(num1, num2);
+      result = divide(numb1, numb2);
+      display.textContent = result;
       break;
   }
+  num1 = result;
+  num2 = "";
 }
 
 function populateDisplay(input) {
   if (input === "") {
-    display.textContent = " ";
+    display.textContent = "0";
   } else {
     if (operator === "") {
       num1 += input;
@@ -87,15 +94,31 @@ button.forEach((buttonItem) => {
         populateDisplay("0");
         break;
       case "+":
+        if (num2 !== "") {
+          operate(operator, num1, num2);
+        }
+
         operator = "+";
         break;
       case "-":
+        if (num2 !== "") {
+          operate(operator, num1, num2);
+        }
+
         operator = "-";
         break;
       case "*":
+        if (num2 !== "") {
+          operate(operator, num1, num2);
+        }
+
         operator = "*";
         break;
       case "/":
+        if (num2 !== "") {
+          operate(operator, num1, num2);
+        }
+
         operator = "/";
         break;
       case "=":
