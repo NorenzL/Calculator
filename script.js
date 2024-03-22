@@ -1,9 +1,10 @@
-let num1 = 0;
-let num2 = 0;
-let operator;
+let num1 = "";
+let num2 = "";
+let operator = "";
+let display = document.querySelector(".display");
 
 function add(num1, num2) {
-  return num1 + num2;
+  return Number(num1) + Number(num2);
 }
 
 function subtract(num1, num2) {
@@ -21,26 +22,31 @@ function divide(num1, num2) {
 function operate(operation, num1, num2) {
   switch (operation) {
     case "+":
-      add(num1, num2);
+      display.textContent = add(num1, num2);
       break;
     case "-":
-      subtract(num1, num2);
+      display.textContent = subtract(num1, num2);
       break;
     case "*":
-      multiply(num1, num2);
+      display.textContent = multiply(num1, num2);
       break;
     case "/":
-      divide(num1, num2);
+      display.textContent = divide(num1, num2);
       break;
   }
 }
 
 function populateDisplay(input) {
-  let display = document.querySelector(".display");
   if (input === "") {
-    display.textContent = "";
+    display.textContent = " ";
   } else {
-    display.textContent += input;
+    if (operator === "") {
+      num1 += input;
+      display.textContent = num1;
+    } else {
+      num2 += input;
+      display.textContent = num2;
+    }
   }
 }
 
@@ -81,19 +87,26 @@ button.forEach((buttonItem) => {
         populateDisplay("0");
         break;
       case "+":
-        populateDisplay("+");
+        operator = "+";
         break;
       case "-":
-        populateDisplay("-");
+        operator = "-";
         break;
       case "*":
-        populateDisplay("*");
+        operator = "*";
         break;
       case "/":
-        populateDisplay("/");
+        operator = "/";
+        break;
+      case "=":
+        operate(operator, num1, num2);
         break;
       case "clear":
         populateDisplay("");
+        num1 = "";
+        num2 = "";
+        operator = "";
+        break;
     }
   });
 });
