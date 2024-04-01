@@ -45,6 +45,7 @@ function operate(operation, numb1, numb2) {
   }
   num1 = result;
   num2 = "";
+  operator = "";
 }
 
 function populateDisplay(input) {
@@ -52,8 +53,13 @@ function populateDisplay(input) {
     display.textContent = "0";
   } else {
     if (operator === "") {
-      num1 += input;
-      display.textContent = num1;
+      if (num1 !== "") {
+        num1 = input;
+        display.textContent = num1;
+      } else {
+        num1 += input;
+        display.textContent = num1;
+      }
     } else {
       num2 += input;
       display.textContent = num2;
@@ -126,7 +132,10 @@ button.forEach((buttonItem) => {
         operator = "/";
         break;
       case "=":
-        operate(operator, num1, num2);
+        if (operator !== "" || num2 !== "") {
+          operate(operator, num1, num2);
+        }
+
         break;
       case "clear":
         populateDisplay("");
