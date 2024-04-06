@@ -1,6 +1,7 @@
 let num1 = "";
 let num2 = "";
 let operator = "";
+let result = "";
 let display = document.querySelector(".display");
 
 function add(num1, num2) {
@@ -24,25 +25,25 @@ function divide(num1, num2) {
 }
 
 function operate(operation, numb1, numb2) {
-  let result = 0;
+  result = 0;
+
   switch (operation) {
     case "+":
       result = add(numb1, numb2);
-      display.textContent = result;
       break;
     case "-":
       result = subtract(numb1, numb2);
-      display.textContent = result;
       break;
     case "*":
       result = multiply(numb1, numb2);
-      display.textContent = result;
       break;
     case "/":
       result = divide(numb1, numb2);
-      display.textContent = result;
       break;
   }
+
+  display.textContent = result;
+
   num1 = result;
   num2 = "";
   operator = "";
@@ -53,8 +54,9 @@ function populateDisplay(input) {
     display.textContent = "0";
   } else {
     if (operator === "") {
-      if (num1 !== "") {
+      if (result !== "") {
         num1 = input;
+        result = "";
         display.textContent = num1;
       } else {
         num1 += input;
