@@ -2,7 +2,7 @@
 
 A basic calculator webpage. With this calculator, you can perform simple arithmetic operations like addition, subtraction, multiplication, and division.
 
-
+![Screenshot 2024-04-08 162747](https://github.com/NorenzL/calculator/assets/68904749/1b38deb4-d74a-441d-93d3-2fe7838b23d8)
 
 ## Features
 
@@ -14,7 +14,7 @@ A basic calculator webpage. With this calculator, you can perform simple arithme
 
 ## Live Demo
 
-You can access the live demo 
+You can access the live demo [here](https://norenzl.github.io/calculator/)
 
 This demo allows you to try out the calculator directly in your browser.
 
