@@ -59,12 +59,16 @@ function populateDisplay(input) {
         result = "";
         display.textContent = num1;
       } else {
-        num1 += input;
-        display.textContent = num1;
+        if (num1.length < 8) {
+          num1 += input;
+          display.textContent = num1;
+        }
       }
     } else {
-      num2 += input;
-      display.textContent = num2;
+      if (num2.length < 8) {
+        num2 += input;
+        display.textContent = num2;
+      }
     }
   }
 }
