@@ -80,13 +80,13 @@ function populateDisplay(input) {
         result = "";
         display.textContent = num1;
       } else {
-        if (num1.length < 12) {
+        if (num1.length < 9) {
           num1 += input;
           display.textContent = num1;
         }
       }
     } else {
-      if (num2.length < 12) {
+      if (num2.length < 9) {
         num2 += input;
         display.textContent = num2;
       }
@@ -164,7 +164,7 @@ button.forEach((buttonItem) => {
         }
 
         break;
-      case "clear":
+      case "C":
         populateDisplay("");
         num1 = "";
         num2 = "";
