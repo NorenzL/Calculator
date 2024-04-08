@@ -2,6 +2,7 @@ let num1 = "";
 let num2 = "";
 let operator = "";
 let result = "";
+let periodIsPressed = false;
 let display = document.querySelector(".display");
 
 function add(num1, num2) {
@@ -130,7 +131,16 @@ button.forEach((buttonItem) => {
       case "0":
         populateDisplay("0");
         break;
+      case ".":
+        if (!periodIsPressed) {
+          populateDisplay(".");
+          periodIsPressed = true;
+        }
+
+        break;
       case "+":
+        periodIsPressed = false;
+
         if (num2 !== "") {
           operate(operator, num1, num2);
         }
@@ -138,6 +148,8 @@ button.forEach((buttonItem) => {
         operator = "+";
         break;
       case "-":
+        periodIsPressed = false;
+
         if (num2 !== "") {
           operate(operator, num1, num2);
         }
@@ -145,6 +157,8 @@ button.forEach((buttonItem) => {
         operator = "-";
         break;
       case "*":
+        periodIsPressed = false;
+
         if (num2 !== "") {
           operate(operator, num1, num2);
         }
@@ -152,6 +166,8 @@ button.forEach((buttonItem) => {
         operator = "*";
         break;
       case "/":
+        periodIsPressed = false;
+
         if (num2 !== "") {
           operate(operator, num1, num2);
         }
@@ -159,6 +175,8 @@ button.forEach((buttonItem) => {
         operator = "/";
         break;
       case "=":
+        periodIsPressed = false;
+
         if (operator !== "" || num2 !== "") {
           operate(operator, num1, num2);
         }
@@ -169,6 +187,7 @@ button.forEach((buttonItem) => {
         num1 = "";
         num2 = "";
         operator = "";
+        periodIsPressed = false;
         break;
     }
   });
