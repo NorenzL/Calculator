@@ -43,3 +43,8 @@ button:hover {
 .operation-button:hover {
   background: rgba(255, 68, 0, 0.592);
 }
+
+.delete-button {
+  background-color: rgba(255, 140, 0, 0.57);
+  width: 154px;
+}

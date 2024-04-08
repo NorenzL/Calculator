@@ -189,6 +189,24 @@ button.forEach((buttonItem) => {
         operator = "";
         periodIsPressed = false;
         break;
+      case "Delete":
+        if (operator === "") {
+          num1 = num1.slice(0, num1.length - 1);
+          if (num1 === "") {
+            display.textContent = 0;
+          } else {
+            display.textContent = num1;
+          }
+        } else {
+          num2 = num2.slice(0, num2.length - 1);
+          if (num2 === "") {
+            display.textContent = 0;
+          } else {
+            display.textContent = num2;
+          }
+        }
+
+        break;
     }
   });
 });
