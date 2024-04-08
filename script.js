@@ -41,8 +41,29 @@ function operate(operation, numb1, numb2) {
       result = divide(numb1, numb2);
       break;
   }
+  let stringResult = String(result);
+  let indexOfDecimal = stringResult.indexOf(".");
 
-  display.textContent = result;
+  if (indexOfDecimal !== -1) {
+    let integerPart = stringResult.slice(0, indexOfDecimal);
+    let decimalPart = stringResult.slice(indexOfDecimal + 1);
+    let totalLength = integerPart.length + decimalPart.length + 1;
+
+    if (totalLength > 9) {
+      let integerPartLimit = 9 - decimalPart.length - 1;
+      stringResult = `${integerPart.slice(0, integerPartLimit)}.${decimalPart}`;
+
+      let truncatedIntegerPart = integerPart.slice(0, integerPartLimit);
+      let roundedDecimalPart = Number(`0.${decimalPart}`)
+        .toFixed(9 - truncatedIntegerPart.length - 1)
+        .slice(2);
+      stringResult = `${truncatedIntegerPart}.${roundedDecimalPart}`;
+    }
+  } else {
+    stringResult = stringResult.slice(0, 9);
+  }
+
+  display.textContent = stringResult;
 
   num1 = result;
   num2 = "";
@@ -59,13 +80,13 @@ function populateDisplay(input) {
         result = "";
         display.textContent = num1;
       } else {
-        if (num1.length < 8) {
+        if (num1.length < 12) {
           num1 += input;
           display.textContent = num1;
         }
       }
     } else {
-      if (num2.length < 8) {
+      if (num2.length < 12) {
         num2 += input;
         display.textContent = num2;
       }
