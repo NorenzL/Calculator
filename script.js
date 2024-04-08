@@ -98,6 +98,117 @@ function populateDisplay(input) {
 // Add button click event listener
 const button = document.querySelectorAll(".button");
 
+document.addEventListener("keydown", (event) => {
+  switch (event.key) {
+    case "1":
+      populateDisplay("1");
+      break;
+    case "2":
+      populateDisplay("2");
+      break;
+    case "3":
+      populateDisplay("3");
+      break;
+    case "4":
+      populateDisplay("4");
+      break;
+    case "5":
+      populateDisplay("5");
+      break;
+    case "6":
+      populateDisplay("6");
+      break;
+    case "7":
+      populateDisplay("7");
+      break;
+    case "8":
+      populateDisplay("8");
+      break;
+    case "9":
+      populateDisplay("9");
+      break;
+    case "0":
+      populateDisplay("0");
+      break;
+    case ".":
+      if (!periodIsPressed) {
+        populateDisplay(".");
+        periodIsPressed = true;
+      }
+
+      break;
+    case "+":
+      periodIsPressed = false;
+
+      if (num2 !== "") {
+        operate(operator, num1, num2);
+      }
+
+      operator = "+";
+      break;
+    case "-":
+      periodIsPressed = false;
+
+      if (num2 !== "") {
+        operate(operator, num1, num2);
+      }
+
+      operator = "-";
+      break;
+    case "*":
+      periodIsPressed = false;
+
+      if (num2 !== "") {
+        operate(operator, num1, num2);
+      }
+
+      operator = "*";
+      break;
+    case "/":
+      periodIsPressed = false;
+
+      if (num2 !== "") {
+        operate(operator, num1, num2);
+      }
+
+      operator = "/";
+      break;
+
+    case "=":
+      periodIsPressed = false;
+      if (operator !== "" || num2 !== "") {
+        operate(operator, num1, num2);
+      }
+
+      break;
+    case "C":
+    case "c":
+      populateDisplay("");
+      num1 = "";
+      num2 = "";
+      operator = "";
+      periodIsPressed = false;
+      break;
+    case "Backspace":
+      if (operator === "") {
+        num1 = num1.slice(0, num1.length - 1);
+        if (num1 === "") {
+          display.textContent = 0;
+        } else {
+          display.textContent = num1;
+        }
+      } else {
+        num2 = num2.slice(0, num2.length - 1);
+        if (num2 === "") {
+          display.textContent = 0;
+        } else {
+          display.textContent = num2;
+        }
+      }
+      break;
+  }
+});
+
 button.forEach((buttonItem) => {
   buttonItem.addEventListener("click", () => {
     switch (buttonItem.textContent) {
