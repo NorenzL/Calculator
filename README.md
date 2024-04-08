@@ -14,7 +14,7 @@ A basic calculator webpage. With this calculator, you can perform simple arithme
 
 ## Live Demo
 
-You can access the live demo [here](https://norenzl.github.io/calculator/)
+You can access the live demo [here](https://norenzl.github.io/Calculator/)
 
 This demo allows you to try out the calculator directly in your browser.
 
