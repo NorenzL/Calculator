@@ -34,3 +34,12 @@ button {
 .operation-button {
   background-color: orangered;
 }
+
+button:hover {
+  background-color: rgba(163, 183, 183, 0.849);
+  cursor: pointer;
+}
+
+.operation-button:hover {
+  background: rgba(255, 68, 0, 0.592);
+}
