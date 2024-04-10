@@ -10,7 +10,7 @@ A basic calculator webpage. With this calculator, you can perform simple arithme
 - Clear button to reset the calculator.
 - Evaluate single pair of numbers at a time.
 - Evaluate decimal numbers.
-- Keyboard support for input (numeric keys, operators, and Enter key for calculation).
+- Keyboard support for input (numeric keys, and operators).
 
 ## Live Demo
 
